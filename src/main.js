@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './components/example/router/router'
 import components from './components/example/UI'
 // import components from '@/components/example/UI'
+// import VInrersection from './components/example/directives/VInrersection'
+import directives from './components/example/directives'
 
 function component1() {
   const element = document.createElement('div') // создаем новый элемент
@@ -20,6 +22,10 @@ components.forEach((component) => {
 document.body.appendChild(component1())
 
 // createApp(App).mount('#app')
+directives.forEach((directive) => {
+  app.directive(directive.name, directive)
+})
+
 app.use(router).mount('#app')
 // app.mount('#app')
 // use позволяет использовать сторонние модули: плагины, библиотеки, bootstrap, VueX

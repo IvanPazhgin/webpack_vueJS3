@@ -2,7 +2,7 @@
   <!-- submit.prevent - чтобы страница не перезагружалась после нажатия кнопки -->
   <form @submit.prevent>
     <h3>Добавить пост</h3>
-    <my-input v-model="post.title" placeholder="Название" />
+    <my-input v-focus v-model="post.title" placeholder="Название" />
     <my-input v-model="post.body" placeholder="Описание" />
     <!-- <button class="btn">Добавить</button> -->
     <!-- <button class="btn" @click="addPost">Добавить</button> -->

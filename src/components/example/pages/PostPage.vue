@@ -3,7 +3,7 @@
   <h2>Разбор на большое количество компонентов</h2>
   <div>
     <h2>Страница с постами</h2>
-    <my-input v-model="searchQuery" placeholder="Поиск..." />
+    <my-input v-focus v-model="searchQuery" placeholder="Поиск..." />
     <div class="app__btns">
       <my-button @click="showDialog">Создать пост</my-button>
       <my-select v-model="selectedSort" :options="sortOptions" />
@@ -21,7 +21,10 @@
       v-if="!isPostsLoading"
     />
     <div v-else>Идет загрузка...</div>
-    <div ref="observer" class="observer"></div>
+
+    <div v-intersection="loadMorePosts" class="observer"></div>
+    <!-- <div ref="observer" class="observer"></div> -->
+
     <!-- <div class="page__wrapper">
       <div
         v-for="pageNumber in totalPages"
@@ -132,18 +135,18 @@ export default {
     this.fetchPosts()
 
     // https://developer.mozilla.org/ru/docs/Web/API/Intersection_Observer_API#%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F
-    const options = {
-      rootMargin: '0px',
-      threshold: 1.0,
-    }
-    const callback = (entries, observer) => {
-      /* Content excerpted, show below */
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts()
-      }
-    }
-    const observer = new IntersectionObserver(callback, options)
-    observer.observe(this.$refs.observer)
+    // const options = {
+    //   rootMargin: '0px',
+    //   threshold: 1.0,
+    // }
+    // const callback = (entries, observer) => {
+    //   /* Content excerpted, show below */
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts()
+    //   }
+    // }
+    // const observer = new IntersectionObserver(callback, options)
+    // observer.observe(this.$refs.observer)
   },
 
   // вычисляемые свойства. Возвращает отсортированный массив. Запоминает результат вычислений. Перерасчет происходит в том случае, если изменится зависимость, которая используется внутри этой функции
