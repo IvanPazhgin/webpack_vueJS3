@@ -36,5 +36,3 @@ app.use(router).mount('#app')
 //   methods,
 // }
 // ctrl + space => see all fields
-
-// еще вариант: установить пакет vue

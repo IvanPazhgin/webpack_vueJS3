@@ -1,47 +1,22 @@
-<!-- Разметка, структура сайта, шаблон -->
 <template>
-  <!-- шапка -->
-  <div>
-    <h2>Основное приложение</h2>
+  <navbar></navbar>
+  <div class="fullApp">
+    <router-view></router-view>
   </div>
-  <div>
-    Кол-во лайков: <strong>{{ likes }}</strong>
-  </div>
-  <!-- другой пример -->
-  <div id="text">
-    <h3>{{ text }}</h3>
-  </div>
-  <hr />
-  <!-- слайдер -->
-  <div>
-    <Counter />
-  </div>
-  <hr />
-  <!-- футтер -->
-  <div>
-    <socialVue />
-  </div>
-  <hr />
 </template>
 
-<!-- логика, данные и переменные, функции -->
 <script>
-import Counter from './components/counter.vue'
-import socialVue from './components/example/social.vue'
-export default {
-  // name: 'app',
-  components: { Counter, socialVue },
-  data() {
-    return {
-      likes: 0,
-      text: 'welcome to disclaimer',
-    }
-  },
-}
+export default {}
 </script>
 
 <style scoped>
-#text {
-  color: blue;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fullApp {
+  padding: 20px;
 }
 </style>
