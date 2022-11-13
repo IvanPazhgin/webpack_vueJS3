@@ -6,6 +6,9 @@
       <my-button @click="$router.push('/multipage')" style="margin-left: 20px"
         >Компоненты</my-button
       >
+      <my-button @click="$router.push('/store')" style="margin-left: 20px"
+        >store</my-button
+      >
     </div>
   </div>
 </template>

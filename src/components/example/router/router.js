@@ -5,6 +5,7 @@ import MultiPage from '../pages/MultiPage.vue'
 import PostIdPage from '../pages/PostIdPage.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 // https://router.vuejs.org/guide/#javascript
+import PostPageWithStore from '../pages/PostPageWithStore.vue'
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
   {
     path: '/posts/:id',
     component: PostIdPage,
+  },
+  {
+    // используем VueX
+    path: '/store',
+    component: PostPageWithStore,
   },
 ]
 

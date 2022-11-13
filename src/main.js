@@ -5,6 +5,7 @@ import components from './components/example/UI'
 // import components from '@/components/example/UI'
 // import VInrersection from './components/example/directives/VInrersection'
 import directives from './components/example/directives'
+import store from './components/example/store'
 
 function component1() {
   const element = document.createElement('div') // создаем новый элемент
@@ -26,7 +27,7 @@ directives.forEach((directive) => {
   app.directive(directive.name, directive)
 })
 
-app.use(router).mount('#app')
+app.use(router).use(store).mount('#app')
 // app.mount('#app')
 // use позволяет использовать сторонние модули: плагины, библиотеки, bootstrap, VueX
 
